@@ -16,6 +16,8 @@ int main()
 
         ClearBackground(darkBlue); // Clear the background with the dark blue color
 
+        grid.Draw();
+
         EndDrawing(); // End the drawing phase
     }
 
