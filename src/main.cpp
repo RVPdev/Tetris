@@ -1,24 +1,24 @@
-#include <raylib.h>
-#include "grid.h"
+#include <raylib.h> // Include the Raylib library for game development
+#include "grid.h"   // Include the custom Grid class header
 
 int main()
 {
-    Color darkBlue = {44, 44, 127, 255};
-    InitWindow(300, 600, "Tetris");
-    SetTargetFPS(60);
+    Color darkBlue = {44, 44, 127, 255}; // Define a dark blue color
+    InitWindow(300, 600, "Tetris");      // Initialize the game window with dimensions 300x600 and title "Tetris"
+    SetTargetFPS(60);                    // Set the target frames per second to 60
 
-    Grid grid = Grid();
-    grid.Print();
+    Grid grid = Grid(); // Create a new Grid object
+    grid.Print();       // Call the Print method of the Grid object to display its contents (for debugging)
 
-    while (!WindowShouldClose())
+    while (!WindowShouldClose()) // Main game loop; continues until the window is closed
     {
-        BeginDrawing();
+        BeginDrawing(); // Begin the drawing phase
 
-        ClearBackground(darkBlue);
+        ClearBackground(darkBlue); // Clear the background with the dark blue color
 
-        EndDrawing();
+        EndDrawing(); // End the drawing phase
     }
 
-    CloseWindow();
-    return 0;
+    CloseWindow(); // Close the game window and free up resources
+    return 0;      // Return 0 to indicate successful execution
 }
