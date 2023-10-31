@@ -12,7 +12,6 @@ public:                // Public members and methods
     int grid[20][10];  // 2D array representing the grid, with 20 rows and 10 columns
 
 private:                                // Private members and methods
-    std::vector<Color> GetCellColors(); // Method to get the colors for each cell
     int numRows;                        // Number of rows in the grid
     int numCols;                        // Number of columns in the grid
     int cellSize;                       // Size of each cell in the grid

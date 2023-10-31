@@ -1,5 +1,6 @@
 #include "grid.h"   // Include the header file for the Grid class
 #include <iostream> // Include the standard I/O library
+#include "colors.h"
 
 using namespace std; // Use the standard namespace
 
@@ -36,23 +37,6 @@ void Grid::Print()
         }
         cout << endl; // Move to the next line after printing all columns in the current row
     }
-}
-
-// GetCellColors returns a vector of Color objects that represent the different colors for the cells.
-std::vector<Color> Grid::GetCellColors()
-{
-    // Define the colors for the cells
-    Color darkGrey = {26, 31, 40, 255};
-    Color green = {47, 230, 23, 255};
-    Color red = {232, 18, 18, 255};
-    Color orange = {226, 116, 17, 255};
-    Color yellow = {237, 234, 4, 255};
-    Color purple = {166, 0, 247, 255};
-    Color cyan = {21, 204, 209, 255};
-    Color blue = {13, 64, 213, 255};
-
-    // Return a vector containing all the defined colors
-    return {darkGrey, green, red, orange, yellow, purple, cyan, blue};
 }
 
 // Draw method is responsible for drawing the grid on the screen.
