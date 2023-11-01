@@ -1,6 +1,6 @@
-#include <raylib.h> // Include the Raylib library for game development
-#include "grid.h"   // Include the custom Grid class header
-#include "blocks.cpp"
+#include <raylib.h>   // Include the Raylib library for game development
+#include "grid.h"     // Include the custom Grid class header
+#include "blocks.cpp" // Include the blocks definitions
 
 int main()
 {
@@ -11,7 +11,7 @@ int main()
     Grid grid = Grid(); // Create a new Grid object
     grid.Print();       // Call the Print method of the Grid object to display its contents (for debugging)
 
-    LBlock block = LBlock();
+    LBlock block = LBlock(); // Create a new LBlock object
 
     while (!WindowShouldClose()) // Main game loop; continues until the window is closed
     {
@@ -19,9 +19,9 @@ int main()
 
         ClearBackground(darkBlue); // Clear the background with the dark blue color
 
-        grid.Draw();
+        grid.Draw(); // Draw the grid on the screen
 
-        block.Draw();
+        block.Draw(); // Draw the LBlock on the screen
 
         EndDrawing(); // End the drawing phase
     }
