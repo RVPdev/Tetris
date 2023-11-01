@@ -1,5 +1,6 @@
 #include <raylib.h> // Include the Raylib library for game development
 #include "grid.h"   // Include the custom Grid class header
+#include "blocks.cpp"
 
 int main()
 {
@@ -8,10 +9,9 @@ int main()
     SetTargetFPS(60);                    // Set the target frames per second to 60
 
     Grid grid = Grid(); // Create a new Grid object
-    grid.grid[0][0] = 1;
-    grid.grid[3][5] = 4;
-    grid.grid[17][8] = 7;
-    grid.Print(); // Call the Print method of the Grid object to display its contents (for debugging)
+    grid.Print();       // Call the Print method of the Grid object to display its contents (for debugging)
+
+    LBlock block = LBlock();
 
     while (!WindowShouldClose()) // Main game loop; continues until the window is closed
     {
@@ -20,6 +20,8 @@ int main()
         ClearBackground(darkBlue); // Clear the background with the dark blue color
 
         grid.Draw();
+
+        block.Draw();
 
         EndDrawing(); // End the drawing phase
     }
