@@ -14,7 +14,7 @@ Block::Block()
 void Block::Draw()
 {
     std::vector<Position> tiles = GetCellPositions(); // Fetch the block cells for the current rotation state
-    for (Position item : tiles)                         // Loop through each position in the tiles vector
+    for (Position item : tiles)                       // Loop through each position in the tiles vector
     {
         // Draw each tile as a rectangle on the screen
         // We add and subtract 1 to give it a little border
@@ -22,20 +22,26 @@ void Block::Draw()
     }
 }
 
+// Method to move the block by a certain number of rows and columns
 void Block::Move(int rows, int columns)
 {
-    rowOffset += rows;
-    columnOffset += columns;
+    rowOffset += rows;       // Increase the row offset by the specified number of rows
+    columnOffset += columns; // Increase the column offset by the specified number of columns
 }
 
+// Method to get the positions of the cells in the current block, adjusted for the current offsets
 std::vector<Position> Block::GetCellPositions()
 {
-    std::vector<Position> tiles = cells[rotationState];
-    std::vector<Position> movedTiles;
-    for(Position item: tiles)
+    std::vector<Position> tiles = cells[rotationState]; // Get the positions of the cells for the current rotation state
+    std::vector<Position> movedTiles;                   // Vector to store the adjusted positions
+
+    // Loop through each cell position
+    for (Position item : tiles)
     {
+        // Create a new Position object with the adjusted row and column values
         Position newPos = Position(item.row + rowOffset, item.column + columnOffset);
-        movedTiles.push_back(newPos);
+        movedTiles.push_back(newPos); // Add the adjusted position to the vector
     }
-    return movedTiles;
+
+    return movedTiles; // Return the vector of adjusted positions
 }
