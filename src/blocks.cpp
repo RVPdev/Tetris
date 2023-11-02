@@ -70,3 +70,73 @@ public:
                     Position(2, 1)};
     }
 };
+
+// Define a new class IBlock, inheriting from Block
+class IBlock : public Block
+{
+public:
+    // Constructor for the IBlock class
+    IBlock()
+    {
+        id = 3; // Set the block ID to 1
+
+        // Define the block cells for rotation state 0
+        cells[0] = {Position(1, 0),
+                    Position(1, 1),
+                    Position(1, 2),
+                    Position(1, 3)};
+
+        // Define the block cells for rotation state 1
+        cells[1] = {Position(0, 2),
+                    Position(1, 2),
+                    Position(2, 2),
+                    Position(3, 2)};
+
+        // Define the block cells for rotation state 2
+        cells[2] = {Position(2, 0),
+                    Position(2, 1),
+                    Position(2, 2),
+                    Position(2, 3)};
+
+        // Define the block cells for rotation state 3
+        cells[3] = {Position(0, 1),
+                    Position(1, 1),
+                    Position(2, 1),
+                    Position(3, 1)};
+    }
+};
+
+// Define a new class OBlock, inheriting from Block
+class OBlock : public Block
+{
+public:
+    // Constructor for the OBlock class
+    OBlock()
+    {
+        id = 3; // Set the block ID to 1
+
+        // Define the block cells for rotation state 0
+        cells[0] = {Position(0, 0),
+                    Position(0, 1),
+                    Position(1, 0),
+                    Position(1, 1)};
+
+        // Define the block cells for rotation state 1
+        cells[1] = {Position(0, 0),
+                    Position(0, 1),
+                    Position(1, 0),
+                    Position(1, 1)};
+
+        // Define the block cells for rotation state 2
+        cells[2] = {Position(0, 0),
+                    Position(0, 1),
+                    Position(1, 0),
+                    Position(1, 1)};
+
+        // Define the block cells for rotation state 3
+        cells[3] = {Position(0, 0),
+                    Position(0, 1),
+                    Position(1, 0),
+                    Position(1, 1)};
+    }
+};
