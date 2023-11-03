@@ -33,6 +33,8 @@ public:
                     Position(0, 1),
                     Position(1, 1),
                     Position(2, 1)};
+
+        Move(0, 3);
     }
 };
 
@@ -68,6 +70,8 @@ public:
                     Position(1, 1),
                     Position(2, 0),
                     Position(2, 1)};
+
+        Move(0, 3);
     }
 };
 
@@ -103,6 +107,8 @@ public:
                     Position(1, 1),
                     Position(2, 1),
                     Position(3, 1)};
+
+        Move(-1, 3);
     }
 };
 
@@ -138,6 +144,8 @@ public:
         //             Position(0, 1),
         //             Position(1, 0),
         //             Position(1, 1)};
+
+        Move(0, 4);
     }
 };
 
@@ -173,6 +181,8 @@ public:
                     Position(1, 0),
                     Position(1, 1),
                     Position(2, 1)};
+
+        Move(0, 3);
     }
 };
 
@@ -208,6 +218,8 @@ public:
                     Position(1, 0),
                     Position(1, 1),
                     Position(2, 1)};
+
+        Move(0, 3);
     }
 };
 
@@ -243,5 +255,7 @@ public:
                     Position(1, 0),
                     Position(1, 1),
                     Position(2, 0)};
+
+        Move(0, 3);
     }
 };
