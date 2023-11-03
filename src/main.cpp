@@ -11,7 +11,7 @@ int main()
     Grid grid = Grid(); // Create a new Grid object
     grid.Print();       // Call the Print method of the Grid object to display its contents (for debugging)
 
-    IBlock block = IBlock(); // Create a new LBlock object
+    IBlock block = IBlock(); // Create a new IBlock object
 
     while (!WindowShouldClose()) // Main game loop; continues until the window is closed
     {
