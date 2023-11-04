@@ -1,5 +1,5 @@
 #include <raylib.h> // Include the Raylib library for game development
-#include "game.h" // Include the Game Class
+#include "game.h"   // Include the Game Class
 
 int main()
 {
@@ -11,6 +11,8 @@ int main()
 
     while (!WindowShouldClose()) // Main game loop; continues until the window is closed
     {
+        game.HandleIinput();
+
         BeginDrawing(); // Begin the drawing phase
 
         ClearBackground(darkBlue); // Clear the background with the dark blue color

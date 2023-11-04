@@ -36,3 +36,38 @@ void Game::Draw()
     grid.Draw();         // Draw the grid
     currentBlock.Draw(); // Draw the current block
 }
+
+void Game::HandleIinput()
+{
+    int keyPressed = GetKeyPressed();
+
+    switch (keyPressed)
+    {
+    case KEY_LEFT:
+        MoveBlockLeft();
+        break;
+
+    case KEY_RIGHT:
+        MoveBlockRight();
+        break;
+
+    case KEY_DOWN:
+        MoveBlockDown();
+        break;
+    }
+}
+
+void Game::MoveBlockLeft()
+{
+    currentBlock.Move(0, -1);
+}
+
+void Game::MoveBlockRight()
+{
+    currentBlock.Move(0, 1);
+}
+
+void Game::MoveBlockDown()
+{
+    currentBlock.Move(1, 0);
+}
