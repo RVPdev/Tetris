@@ -56,3 +56,16 @@ void Grid::Draw()
         }
     }
 }
+
+// Method to check if a cell is outside the boundaries of the grid
+bool Grid::IsCellOutside(int row, int col)
+{
+    // Check if the cell's row and column are within the grid boundaries
+    if (row >= 0 && row < numRows && col >= 0 && col < numCols)
+    {
+        return false; // The cell is inside the grid, return false
+    }
+
+    // If the cell's row or column are outside the grid boundaries, return true
+    return true;
+}

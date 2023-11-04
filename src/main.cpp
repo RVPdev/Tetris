@@ -11,7 +11,7 @@ int main()
 
     while (!WindowShouldClose()) // Main game loop; continues until the window is closed
     {
-        game.HandleIinput();
+        game.HandleInput();
 
         BeginDrawing(); // Begin the drawing phase
 

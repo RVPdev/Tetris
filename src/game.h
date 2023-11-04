@@ -17,6 +17,7 @@ public:
     Grid grid;                         // Grid object representing the game board
 
 private:
+    bool IsBlockOutside();
     std::vector<Block> blocks; // Vector of all block types available in the game
     Block currentBlock;        // The block that is currently being controlled by the player
     Block nextBlock;           // The next block that will appear after the current block is placed

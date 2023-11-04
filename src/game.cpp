@@ -61,17 +61,43 @@ void Game::HandleInput()
 // Method to move the current block one unit to the left
 void Game::MoveBlockLeft()
 {
-    currentBlock.Move(0, -1); // Move the current block left by decreasing the column index by 1
+    currentBlock.Move(0, -1); // Attempt to move the current block left by decreasing the column index by 1
+    if (IsBlockOutside())     // Check if the block is outside the grid after moving
+    {
+        currentBlock.Move(0, 1); // Move the block back to the right if it went outside the grid
+    }
 }
 
 // Method to move the current block one unit to the right
 void Game::MoveBlockRight()
 {
-    currentBlock.Move(0, 1); // Move the current block right by increasing the column index by 1
+    currentBlock.Move(0, 1); // Attempt to move the current block right by increasing the column index by 1
+    if (IsBlockOutside())    // Check if the block is outside the grid after moving
+    {
+        currentBlock.Move(0, -1); // Move the block back to the left if it went outside the grid
+    }
 }
 
 // Method to move the current block one unit down
 void Game::MoveBlockDown()
 {
-    currentBlock.Move(1, 0); // Move the current block down by increasing the row index by 1
+    currentBlock.Move(1, 0); // Attempt to move the current block down by increasing the row index by 1
+    if (IsBlockOutside())    // Check if the block is outside the grid after moving
+    {
+        currentBlock.Move(-1, 0); // Move the block back up if it went outside the grid
+    }
+}
+
+// Helper method to determine if any part of the current block is outside the grid boundaries
+bool Game::IsBlockOutside()
+{
+    std::vector<Position> tiles = currentBlock.GetCellPositions(); // Get the current positions of the block's cells
+    for (Position item : tiles)                                    // Iterate through each cell of the block
+    {
+        if (grid.IsCellOutside(item.row, item.column)) // Use the grid's method to check if the cell is outside
+        {
+            return true; // Return true if any cell is outside the grid
+        }
+    }
+    return false; // Return false if all cells are inside the grid
 }
