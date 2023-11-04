@@ -37,37 +37,41 @@ void Game::Draw()
     currentBlock.Draw(); // Draw the current block
 }
 
-void Game::HandleIinput()
+// Method to handle user input for moving blocks
+void Game::HandleInput()
 {
-    int keyPressed = GetKeyPressed();
+    int keyPressed = GetKeyPressed(); // Get the key pressed by the user
 
-    switch (keyPressed)
+    switch (keyPressed) // Switch statement to handle different key presses
     {
-    case KEY_LEFT:
-        MoveBlockLeft();
+    case KEY_LEFT:       // If the left arrow key is pressed
+        MoveBlockLeft(); // Call the method to move the block left
         break;
 
-    case KEY_RIGHT:
-        MoveBlockRight();
+    case KEY_RIGHT:       // If the right arrow key is pressed
+        MoveBlockRight(); // Call the method to move the block right
         break;
 
-    case KEY_DOWN:
-        MoveBlockDown();
+    case KEY_DOWN:       // If the down arrow key is pressed
+        MoveBlockDown(); // Call the method to move the block down
         break;
     }
 }
 
+// Method to move the current block one unit to the left
 void Game::MoveBlockLeft()
 {
-    currentBlock.Move(0, -1);
+    currentBlock.Move(0, -1); // Move the current block left by decreasing the column index by 1
 }
 
+// Method to move the current block one unit to the right
 void Game::MoveBlockRight()
 {
-    currentBlock.Move(0, 1);
+    currentBlock.Move(0, 1); // Move the current block right by increasing the column index by 1
 }
 
+// Method to move the current block one unit down
 void Game::MoveBlockDown()
 {
-    currentBlock.Move(1, 0);
+    currentBlock.Move(1, 0); // Move the current block down by increasing the row index by 1
 }

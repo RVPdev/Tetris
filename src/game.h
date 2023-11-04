@@ -10,11 +10,11 @@ public:
     Block GetRandomBlock();            // Method to get a random block from the available types
     std::vector<Block> GetAllBlocks(); // Method to retrieve all block types for the game
     void Draw();                       // Method to draw the game state, including the grid and blocks
-    void HandleIinput();               // Method to handle the player input
-    void MoveBlockLeft();
-    void MoveBlockRight();
-    void MoveBlockDown();
-    Grid grid; // Grid object representing the game board
+    void HandleInput();               // Method to handle the player input
+    void MoveBlockLeft();              // Method to handle left movement
+    void MoveBlockRight();             // Method to handle Right movement
+    void MoveBlockDown();              // Method to handle Down movement
+    Grid grid;                         // Grid object representing the game board
 
 private:
     std::vector<Block> blocks; // Vector of all block types available in the game
