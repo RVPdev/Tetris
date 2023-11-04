@@ -1,6 +1,5 @@
-#include <raylib.h>   // Include the Raylib library for game development
-#include "grid.h"     // Include the custom Grid class header
-#include "blocks.cpp" // Include the blocks definitions
+#include <raylib.h> // Include the Raylib library for game development
+#include "game.h" // Include the Game Class
 
 int main()
 {
@@ -8,10 +7,7 @@ int main()
     InitWindow(300, 600, "Tetris");      // Initialize the game window with dimensions 300x600 and title "Tetris"
     SetTargetFPS(60);                    // Set the target frames per second to 60
 
-    Grid grid = Grid(); // Create a new Grid object
-    grid.Print();       // Call the Print method of the Grid object to display its contents (for debugging)
-
-    IBlock block = IBlock(); // Create a new IBlock object
+    Game game = Game();
 
     while (!WindowShouldClose()) // Main game loop; continues until the window is closed
     {
@@ -19,9 +15,7 @@ int main()
 
         ClearBackground(darkBlue); // Clear the background with the dark blue color
 
-        grid.Draw(); // Draw the grid on the screen
-
-        block.Draw(); // Draw the LBlock on the screen
+        game.Draw();
 
         EndDrawing(); // End the drawing phase
     }
