@@ -46,11 +46,14 @@ std::vector<Position> Block::GetCellPositions()
     return movedTiles; // Return the vector of adjusted positions
 }
 
+// Method to rotate the block to its next rotation state
 void Block::Rotate()
 {
-    rotationState++;
+    rotationState++; // Increment the rotation state to rotate the block
+
+    // Check if the rotation state has reached the number of possible states
     if(rotationState == (int)cells.size())
     {
-        rotationState = 0;
+        rotationState = 0; // Reset the rotation state back to the initial state if it has
     }
 }

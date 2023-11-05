@@ -106,7 +106,8 @@ bool Game::IsBlockOutside()
     return false; // Return false if all cells are inside the grid
 }
 
+// Method to rotate the current block within the game
 void Game::RotateBlock()
 {
-    currentBlock.Rotate();
+    currentBlock.Rotate(); // Call the Rotate method of the current block to change its orientation
 }
