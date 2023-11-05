@@ -45,3 +45,12 @@ std::vector<Position> Block::GetCellPositions()
 
     return movedTiles; // Return the vector of adjusted positions
 }
+
+void Block::Rotate()
+{
+    rotationState++;
+    if(rotationState == (int)cells.size())
+    {
+        rotationState = 0;
+    }
+}

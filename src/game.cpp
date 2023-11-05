@@ -55,6 +55,10 @@ void Game::HandleInput()
     case KEY_DOWN:       // If the down arrow key is pressed
         MoveBlockDown(); // Call the method to move the block down
         break;
+
+    case KEY_UP:       // If the up arrow key is pressed
+        RotateBlock(); // Call the method to rotate the block
+        break;
     }
 }
 
@@ -100,4 +104,9 @@ bool Game::IsBlockOutside()
         }
     }
     return false; // Return false if all cells are inside the grid
+}
+
+void Game::RotateBlock()
+{
+    currentBlock.Rotate();
 }
