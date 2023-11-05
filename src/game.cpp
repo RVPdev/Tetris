@@ -110,7 +110,7 @@ bool Game::IsBlockOutside()
 void Game::RotateBlock()
 {
     currentBlock.Rotate(); // Call the Rotate method of the current block to change its orientation
-    if(IsBlockOutside())
+    if (IsBlockOutside())  // Undo rotation if the block is outside the grid
     {
         currentBlock.UndoRotation();
     }
