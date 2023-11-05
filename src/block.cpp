@@ -52,8 +52,17 @@ void Block::Rotate()
     rotationState++; // Increment the rotation state to rotate the block
 
     // Check if the rotation state has reached the number of possible states
-    if(rotationState == (int)cells.size())
+    if (rotationState == (int)cells.size())
     {
         rotationState = 0; // Reset the rotation state back to the initial state if it has
+    }
+}
+
+void Block::UndoRotation()
+{
+    rotationState--;
+    if(rotationState == -1)
+    {
+        rotationState = cells.size() -1;
     }
 }
