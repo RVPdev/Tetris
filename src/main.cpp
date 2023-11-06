@@ -1,5 +1,6 @@
 #include <raylib.h> // Include the Raylib library for game development
 #include "game.h"   // Include the Game Class
+#include "colors.h"
 
 double lastUpdateTime = 0;
 
@@ -16,9 +17,8 @@ bool EventTriggered(double interval)
 
 int main()
 {
-    Color darkBlue = {44, 44, 127, 255}; // Define a dark blue color
-    InitWindow(500, 620, "Tetris");      // Initialize the game window with dimensions 300x600 and title "Tetris"
-    SetTargetFPS(60);                    // Set the target frames per second to 60
+    InitWindow(500, 620, "Tetris"); // Initialize the game window with dimensions 300x600 and title "Tetris"
+    SetTargetFPS(60);               // Set the target frames per second to 60
 
     Game game = Game();
 
@@ -36,6 +36,7 @@ int main()
         ClearBackground(darkBlue); // Clear the background with the dark blue color
 
         DrawText("Score", 355, 15, 38, WHITE);
+        DrawRectangleRounded({320, 55, 170, 60}, 0.3, 6, lightBlue);
 
         game.Draw();
 

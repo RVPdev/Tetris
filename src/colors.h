@@ -11,6 +11,8 @@ extern const Color yellow;
 extern const Color purple;
 extern const Color cyan;
 extern const Color blue;
+extern const Color lightBlue;
+extern const Color darkBlue;
 
 // Function declaration for GetCellColors, which returns a vector of Color objects
 std::vector<Color> GetCellColors();
