@@ -19,6 +19,7 @@ public:
 private:
     bool IsBlockOutside();     // Check if the block goes outside the border of the grid
     void RotateBlock();        // Method to rotate the Block
+    void LockBlock();
     std::vector<Block> blocks; // Vector of all block types available in the game
     Block currentBlock;        // The block that is currently being controlled by the player
     Block nextBlock;           // The next block that will appear after the current block is placed
