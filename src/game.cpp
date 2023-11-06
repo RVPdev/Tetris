@@ -65,8 +65,8 @@ void Game::HandleInput()
 // Method to move the current block one unit to the left
 void Game::MoveBlockLeft()
 {
-    currentBlock.Move(0, -1); // Attempt to move the current block left by decreasing the column index by 1
-    if (IsBlockOutside())     // Check if the block is outside the grid after moving
+    currentBlock.Move(0, -1);             // Attempt to move the current block left by decreasing the column index by 1
+    if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
     {
         currentBlock.Move(0, 1); // Move the block back to the right if it went outside the grid
     }
@@ -75,8 +75,8 @@ void Game::MoveBlockLeft()
 // Method to move the current block one unit to the right
 void Game::MoveBlockRight()
 {
-    currentBlock.Move(0, 1); // Attempt to move the current block right by increasing the column index by 1
-    if (IsBlockOutside())    // Check if the block is outside the grid after moving
+    currentBlock.Move(0, 1);              // Attempt to move the current block right by increasing the column index by 1
+    if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
     {
         currentBlock.Move(0, -1); // Move the block back to the left if it went outside the grid
     }
@@ -85,8 +85,8 @@ void Game::MoveBlockRight()
 // Method to move the current block one unit down
 void Game::MoveBlockDown()
 {
-    currentBlock.Move(1, 0); // Attempt to move the current block down by increasing the row index by 1
-    if (IsBlockOutside() || !BlockFits())    // Check if the block is outside the grid after moving
+    currentBlock.Move(1, 0);              // Attempt to move the current block down by increasing the row index by 1
+    if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
     {
         currentBlock.Move(-1, 0); // Move the block back up if it went outside the grid
         LockBlock();
@@ -110,8 +110,8 @@ bool Game::IsBlockOutside()
 // Method to rotate the current block within the game
 void Game::RotateBlock()
 {
-    currentBlock.Rotate(); // Call the Rotate method of the current block to change its orientation
-    if (IsBlockOutside())  // Undo rotation if the block is outside the grid
+    currentBlock.Rotate();                // Call the Rotate method of the current block to change its orientation
+    if (IsBlockOutside() || !BlockFits()) // Undo rotation if the block is outside the grid
     {
         currentBlock.UndoRotation();
     }
@@ -142,7 +142,7 @@ bool Game::BlockFits()
 {
     // Retrieve the current positions of the block's cells
     std::vector<Position> tiles = currentBlock.GetCellPositions();
-    
+
     // Iterate through each cell position of the current block
     for (Position item : tiles)
     {
@@ -157,4 +157,3 @@ bool Game::BlockFits()
     // If all cells are empty, the block fits, return true
     return true;
 }
-
