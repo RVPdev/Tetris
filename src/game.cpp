@@ -135,6 +135,8 @@ void Game::LockBlock()
 
     // Generate a new block to become the next block
     nextBlock = GetRandomBlock();
+
+    grid.ClearFullRows();
 }
 
 // Method to check if the current block fits in the grid without overlapping non-empty cells

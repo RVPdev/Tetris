@@ -11,11 +11,15 @@ public:                                   // Public members and methods
     void Draw();                          // Method to Draw the grid
     bool IsCellOutside(int row, int col); // Bool method to check is the cell is outside the grid
     bool IsCellEmpty(int row, int col);   // Bool method to check is the cell is empty
+    int ClearFullRows();                  // Method to Clear full Rows
     int grid[20][10];                     // 2D array representing the grid, with 20 rows and 10 columns
 
-private:                       // Private members and methods
-    int numRows;               // Number of rows in the grid
-    int numCols;               // Number of columns in the grid
-    int cellSize;              // Size of each cell in the grid
-    std::vector<Color> colors; // Vector to store the colors for each cell
+private:                                    // Private members and methods
+    bool IsRowFull(int row);                // Method to check if a row is full
+    void ClearRow(int row);                 // Method to Clear a full Row
+    void MoveRowDown(int row, int numRows); // Method to move all remaining rows down
+    int numRows;                            // Number of rows in the grid
+    int numCols;                            // Number of columns in the grid
+    int cellSize;                           // Size of each cell in the grid
+    std::vector<Color> colors;              // Vector to store the colors for each cell
 };
