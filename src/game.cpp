@@ -86,7 +86,7 @@ void Game::MoveBlockRight()
 void Game::MoveBlockDown()
 {
     currentBlock.Move(1, 0); // Attempt to move the current block down by increasing the row index by 1
-    if (IsBlockOutside())    // Check if the block is outside the grid after moving
+    if (IsBlockOutside() || !BlockFits())    // Check if the block is outside the grid after moving
     {
         currentBlock.Move(-1, 0); // Move the block back up if it went outside the grid
         LockBlock();
@@ -117,13 +117,36 @@ void Game::RotateBlock()
     }
 }
 
+// Method to lock the current block in place on the grid
 void Game::LockBlock()
 {
+    // Retrieve the current positions of the block's cells
     std::vector<Position> tiles = currentBlock.GetCellPositions();
-    for(Position item: tiles)
+
+    // Iterate through each cell position of the current block
+    for (Position item : tiles)
     {
+        // Set the grid cell's value to the block's ID, effectively placing the block on the grid
         grid.grid[item.row][item.column] = currentBlock.id;
     }
+
+    // Replace the current block with the next block
     currentBlock = nextBlock;
+
+    // Generate a new block to become the next block
     nextBlock = GetRandomBlock();
+}
+
+bool Game::BlockFits()
+{
+    std::vector<Position> tiles = currentBlock.GetCellPositions();
+    for (Position item : tiles)
+    {
+        if (grid.IsCellEmpty(item.row, item.column) == false)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }

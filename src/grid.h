@@ -10,6 +10,7 @@ public:                                   // Public members and methods
     void Print();                         // Method to print the grid (likely for debugging)
     void Draw();                          // Method to Draw the grid
     bool IsCellOutside(int row, int col); // Bool method to check is the cell is outside the grid
+    bool IsCellEmpty(int row, int col);   // Bool method to check is the cell is empty
     int grid[20][10];                     // 2D array representing the grid, with 20 rows and 10 columns
 
 private:                       // Private members and methods

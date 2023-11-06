@@ -69,3 +69,13 @@ bool Grid::IsCellOutside(int row, int col)
     // If the cell's row or column are outside the grid boundaries, return true
     return true;
 }
+
+bool Grid::IsCellEmpty(int row, int col)
+{
+    if (grid[row][col] == 0)
+    {
+        return true;
+    }
+
+    return false;
+}
