@@ -136,6 +136,7 @@ void Game::LockBlock()
     // Generate a new block to become the next block
     nextBlock = GetRandomBlock();
 
+    // Clear completer rows
     grid.ClearFullRows();
 }
 

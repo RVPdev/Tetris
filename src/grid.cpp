@@ -70,61 +70,81 @@ bool Grid::IsCellOutside(int row, int col)
     return true;
 }
 
+// Function to check if a cell at the given row and column is empty (not occupied by a block)
 bool Grid::IsCellEmpty(int row, int col)
 {
+    // If the cell's value is 0, it means the cell is empty and can be occupied
     if (grid[row][col] == 0)
     {
         return true;
     }
 
+    // If the cell's value is not 0, it means the cell is occupied and cannot be occupied
     return false;
 }
 
+// Function to clear all rows that are completely filled with blocks
 int Grid::ClearFullRows()
 {
-    int completed = 0;
+    int completed = 0; // Counter for the number of rows cleared
+
+    // Iterate through each row from bottom to top
     for (int row = numRows - 1; row >= 0; row--)
     {
+        // Check if the current row is full
         if (IsRowFull(row))
         {
-            ClearRow(row);
-            completed++;
+            ClearRow(row); // Clear the full row
+            completed++;   // Increment the completed rows counter
         }
+        // If rows have been completed and the current row is not full, move it down
         else if (completed > 0)
         {
             MoveRowDown(row, completed);
         }
     }
 
+    // Return the number of rows that were cleared
     return completed;
 }
 
+// Function to check if a row is completely filled with blocks
 bool Grid::IsRowFull(int row)
 {
+    // Iterate through each column in the row
     for (int col = 0; col < numCols; col++)
     {
+        // If any cell in the row is empty, the row is not full
         if (grid[row][col] == 0)
         {
             return false;
         }
     }
 
+    // If all cells in the row are occupied, the row is full
     return true;
 }
 
+// Function to clear a row by setting all its cells to empty
 void Grid::ClearRow(int row)
 {
+    // Iterate through each column in the row
     for (int col = 0; col < numCols; col++)
     {
+        // Set each cell in the row to 0, indicating it is empty
         grid[row][col] = 0;
     }
 }
 
+// Function to move a row down by a certain number of rows
 void Grid::MoveRowDown(int row, int numRows)
 {
+    // Iterate through each column in the row
     for (int col = 0; col < numCols; col++)
     {
+        // Move the cell's value down by the specified number of rows
         grid[row + numRows][col] = grid[row][col];
+        // Set the original cell's value to 0, indicating it is now empty
         grid[row][col] = 0;
     }
 }
