@@ -17,7 +17,7 @@ bool EventTriggered(double interval)
 int main()
 {
     Color darkBlue = {44, 44, 127, 255}; // Define a dark blue color
-    InitWindow(300, 600, "Tetris");      // Initialize the game window with dimensions 300x600 and title "Tetris"
+    InitWindow(500, 620, "Tetris");      // Initialize the game window with dimensions 300x600 and title "Tetris"
     SetTargetFPS(60);                    // Set the target frames per second to 60
 
     Game game = Game();
@@ -26,7 +26,7 @@ int main()
     {
 
         game.HandleInput();
-        if (EventTriggered(0.02))
+        if (EventTriggered(0.2))
         {
             game.MoveBlockDown();
         }

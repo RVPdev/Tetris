@@ -18,7 +18,7 @@ void Block::Draw()
     {
         // Draw each tile as a rectangle on the screen
         // We add and subtract 1 to give it a little border
-        DrawRectangle(item.column * cellSize + 1, item.row * cellSize + 1, cellSize - 1, cellSize - 1, colors[id]);
+        DrawRectangle(item.column * cellSize + 11, item.row * cellSize + 11, cellSize - 1, cellSize - 1, colors[id]);
     }
 }
 
