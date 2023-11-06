@@ -42,6 +42,11 @@ void Game::Draw()
 void Game::HandleInput()
 {
     int keyPressed = GetKeyPressed(); // Get the key pressed by the user
+    if (gameOver && keyPressed != 0)  // check if game is over and on any key pressed reset the game
+    {
+        gameOver = false;
+        Reset();
+    }
 
     switch (keyPressed) // Switch statement to handle different key presses
     {
@@ -177,4 +182,16 @@ bool Game::BlockFits()
 
     // If all cells are empty, the block fits, return true
     return true;
+}
+
+// Function to reset the game to its initial state
+void Game::Reset()
+{
+    grid.Initialize(); // Initialize the grid, typically setting all cells to empty
+
+    blocks = GetAllBlocks(); // Re-populate the list of all available block types
+
+    currentBlock = GetRandomBlock(); // Set the current block to a new random block
+
+    nextBlock = GetRandomBlock(); // Set the next block to a new random block
 }

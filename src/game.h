@@ -15,13 +15,14 @@ public:
     void MoveBlockRight();             // Method to handle Right movement
     void MoveBlockDown();              // Method to handle Down movement
     Grid grid;                         // Grid object representing the game board
-    bool gameOver;
+    bool gameOver;                     // Bool value to indicate game over status
 
 private:
     bool IsBlockOutside();     // Check if the block goes outside the border of the grid
     void RotateBlock();        // Method to rotate the Block
-    void LockBlock();
-    bool BlockFits();
+    void LockBlock();          // Method to Lock block sin place
+    bool BlockFits();          // Method to check if the block fits in the position
+    void Reset();
     std::vector<Block> blocks; // Vector of all block types available in the game
     Block currentBlock;        // The block that is currently being controlled by the player
     Block nextBlock;           // The next block that will appear after the current block is placed
