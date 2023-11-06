@@ -15,6 +15,7 @@ public:
     void MoveBlockRight();             // Method to handle Right movement
     void MoveBlockDown();              // Method to handle Down movement
     Grid grid;                         // Grid object representing the game board
+    bool gameOver;
 
 private:
     bool IsBlockOutside();     // Check if the block goes outside the border of the grid

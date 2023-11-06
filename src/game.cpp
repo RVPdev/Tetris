@@ -8,6 +8,7 @@ Game::Game()
     blocks = GetAllBlocks();         // Retrieve all types of blocks available in the game
     currentBlock = GetRandomBlock(); // Set the current block to a random block
     nextBlock = GetRandomBlock();    // Set the next block to a random block
+    gameOver = false;                // Set GameOver Value to false
 }
 
 // Method to get a random block from the available block types
@@ -65,31 +66,40 @@ void Game::HandleInput()
 // Method to move the current block one unit to the left
 void Game::MoveBlockLeft()
 {
-    currentBlock.Move(0, -1);             // Attempt to move the current block left by decreasing the column index by 1
-    if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
+    if (!gameOver) // check if gameover is false
     {
-        currentBlock.Move(0, 1); // Move the block back to the right if it went outside the grid
+        currentBlock.Move(0, -1);             // Attempt to move the current block left by decreasing the column index by 1
+        if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
+        {
+            currentBlock.Move(0, 1); // Move the block back to the right if it went outside the grid
+        }
     }
 }
 
 // Method to move the current block one unit to the right
 void Game::MoveBlockRight()
 {
-    currentBlock.Move(0, 1);              // Attempt to move the current block right by increasing the column index by 1
-    if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
+    if (!gameOver) // check if gameover is false
     {
-        currentBlock.Move(0, -1); // Move the block back to the left if it went outside the grid
+        currentBlock.Move(0, 1);              // Attempt to move the current block right by increasing the column index by 1
+        if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
+        {
+            currentBlock.Move(0, -1); // Move the block back to the left if it went outside the grid
+        }
     }
 }
 
 // Method to move the current block one unit down
 void Game::MoveBlockDown()
 {
-    currentBlock.Move(1, 0);              // Attempt to move the current block down by increasing the row index by 1
-    if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
+    if (!gameOver) // check if gameover is false
     {
-        currentBlock.Move(-1, 0); // Move the block back up if it went outside the grid
-        LockBlock();
+        currentBlock.Move(1, 0);              // Attempt to move the current block down by increasing the row index by 1
+        if (IsBlockOutside() || !BlockFits()) // Check if the block is outside the grid after moving
+        {
+            currentBlock.Move(-1, 0); // Move the block back up if it went outside the grid
+            LockBlock();
+        }
     }
 }
 
@@ -110,10 +120,13 @@ bool Game::IsBlockOutside()
 // Method to rotate the current block within the game
 void Game::RotateBlock()
 {
-    currentBlock.Rotate();                // Call the Rotate method of the current block to change its orientation
-    if (IsBlockOutside() || !BlockFits()) // Undo rotation if the block is outside the grid
+    if (!gameOver) // check if gameover is false
     {
-        currentBlock.UndoRotation();
+        currentBlock.Rotate();                // Call the Rotate method of the current block to change its orientation
+        if (IsBlockOutside() || !BlockFits()) // Undo rotation if the block is outside the grid
+        {
+            currentBlock.UndoRotation();
+        }
     }
 }
 
@@ -133,10 +146,15 @@ void Game::LockBlock()
     // Replace the current block with the next block
     currentBlock = nextBlock;
 
+    if (!BlockFits())
+    {
+        gameOver = true;
+    }
+
     // Generate a new block to become the next block
     nextBlock = GetRandomBlock();
 
-    // Clear completer rows
+    // Clear completed rows
     grid.ClearFullRows();
 }
 
