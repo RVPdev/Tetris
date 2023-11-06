@@ -36,7 +36,13 @@ int main()
         ClearBackground(darkBlue); // Clear the background with the dark blue color
 
         DrawText("Score", 355, 15, 38, WHITE);
+        DrawText("Next", 355, 175, 38, WHITE);
+        if (game.gameOver)
+        {
+            DrawText("GAME OVER", 320, 450, 29, WHITE);
+        }
         DrawRectangleRounded({320, 55, 170, 60}, 0.3, 6, lightBlue);
+        DrawRectangleRounded({320, 215, 170, 180}, 0.3, 6, lightBlue);
 
         game.Draw();
 
