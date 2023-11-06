@@ -137,16 +137,24 @@ void Game::LockBlock()
     nextBlock = GetRandomBlock();
 }
 
+// Method to check if the current block fits in the grid without overlapping non-empty cells
 bool Game::BlockFits()
 {
+    // Retrieve the current positions of the block's cells
     std::vector<Position> tiles = currentBlock.GetCellPositions();
+    
+    // Iterate through each cell position of the current block
     for (Position item : tiles)
     {
+        // Check if the cell at the block's position is not empty (i.e., already occupied)
         if (grid.IsCellEmpty(item.row, item.column) == false)
         {
+            // If any cell is not empty, the block does not fit, return false
             return false;
         }
     }
 
+    // If all cells are empty, the block fits, return true
     return true;
 }
+
