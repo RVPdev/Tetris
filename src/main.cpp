@@ -35,6 +35,8 @@ int main()
 
         ClearBackground(darkBlue); // Clear the background with the dark blue color
 
+        DrawText("Score", 355, 15, 38, WHITE);
+
         game.Draw();
 
         EndDrawing(); // End the drawing phase
