@@ -35,8 +35,9 @@ std::vector<Block> Game::GetAllBlocks()
 // Method to draw the game state
 void Game::Draw()
 {
-    grid.Draw();         // Draw the grid
-    currentBlock.Draw(); // Draw the current block
+    grid.Draw();               // Draw the grid
+    currentBlock.Draw(11, 11); // Draw the current block
+    nextBlock.Draw(270, 270);  // Draw next block
 }
 
 // Method to handle user input for moving blocks

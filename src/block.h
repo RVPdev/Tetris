@@ -8,12 +8,12 @@
 // Define the Block class
 class Block
 {
-public:                                         // Public members
-    Block();                                    // Constructor for the Block class
-    void Draw();                                // Method to draw the block on the screen
-    void Move(int rows, int columns);           // Method to move the block by a certain number of rows and columns
-    std::vector<Position> GetCellPositions();   // Method to get the positions of the cells in the current block
-    void Rotate();                              // Method to rotate the block
+public:                                       // Public members
+    Block();                                  // Constructor for the Block class
+    void Draw(int offsetX, int offsetY);      // Method to draw the block on the screen
+    void Move(int rows, int columns);         // Method to move the block by a certain number of rows and columns
+    std::vector<Position> GetCellPositions(); // Method to get the positions of the cells in the current block
+    void Rotate();                            // Method to rotate the block
     void UndoRotation();
     int id;                                     // Unique identifier for each block type
     std::map<int, std::vector<Position>> cells; // Map to hold block cells for each rotation state

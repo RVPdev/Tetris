@@ -11,14 +11,14 @@ Block::Block()
 }
 
 // Method to draw the block
-void Block::Draw()
+void Block::Draw(int offsetX, int offsetY)
 {
     std::vector<Position> tiles = GetCellPositions(); // Fetch the block cells for the current rotation state
     for (Position item : tiles)                       // Loop through each position in the tiles vector
     {
         // Draw each tile as a rectangle on the screen
         // We add and subtract 1 to give it a little border
-        DrawRectangle(item.column * cellSize + 11, item.row * cellSize + 11, cellSize - 1, cellSize - 1, colors[id]);
+        DrawRectangle(item.column * cellSize + offsetX, item.row * cellSize + offsetY, cellSize - 1, cellSize - 1, colors[id]);
     }
 }
 
