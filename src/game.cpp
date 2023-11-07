@@ -9,6 +9,7 @@ Game::Game()
     currentBlock = GetRandomBlock(); // Set the current block to a random block
     nextBlock = GetRandomBlock();    // Set the next block to a random block
     gameOver = false;                // Set GameOver Value to false
+    score = 0;                       // Initialize Score to 0
 }
 
 // Method to get a random block from the available block types
@@ -60,6 +61,7 @@ void Game::HandleInput()
 
     case KEY_DOWN:       // If the down arrow key is pressed
         MoveBlockDown(); // Call the method to move the block down
+        UpdateScore(0, 1);
         break;
 
     case KEY_UP:       // If the up arrow key is pressed
@@ -160,7 +162,8 @@ void Game::LockBlock()
     nextBlock = GetRandomBlock();
 
     // Clear completed rows
-    grid.ClearFullRows();
+    int rowsCleared = grid.ClearFullRows();
+    UpdateScore(rowsCleared, 0);
 }
 
 // Method to check if the current block fits in the grid without overlapping non-empty cells
@@ -194,4 +197,31 @@ void Game::Reset()
     currentBlock = GetRandomBlock(); // Set the current block to a new random block
 
     nextBlock = GetRandomBlock(); // Set the next block to a new random block
+
+    score = 0; // Reset Score to 0
+}
+
+// Function to update the game score based on lines cleared and points for moving down
+void Game::UpdateScore(int linesCleared, int moveDownPoints)
+{
+    // Switch statement to handle different cases of lines cleared
+    switch (linesCleared)
+    {
+    case 1:           // In case 1 line is cleared
+        score += 100; // Add 100 points to the score
+        break;
+    case 2:           // In case 2 lines are cleared
+        score += 300; // Add 300 points to the score
+        break;
+    case 3:           // In case 3 lines are cleared
+        score += 500; // Add 500 points to the score
+        break;
+    // If more than 3 lines are cleared, no additional score is added
+    // This could be extended for cases where more than 3 lines are cleared
+    default:
+        break;
+    }
+
+    // Add points for moving the block down, encouraging faster play
+    score += moveDownPoints;
 }

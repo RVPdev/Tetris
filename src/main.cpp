@@ -1,6 +1,7 @@
 #include <raylib.h> // Include the Raylib library for game development
 #include "game.h"   // Include the Game Class
 #include "colors.h"
+#include <iostream>
 
 double lastUpdateTime = 0;
 
@@ -43,6 +44,12 @@ int main()
         }
         DrawRectangleRounded({320, 55, 170, 60}, 0.3, 6, lightBlue);
         DrawRectangleRounded({320, 215, 170, 180}, 0.3, 6, lightBlue);
+
+        char scoreText[10];
+        sprintf(scoreText, "%d", game.score);
+        int textSize = MeasureText(scoreText, 38);
+
+        DrawText(scoreText, 320 + (170 - textSize) / 2, 65, 38, WHITE);
 
         game.Draw();
 

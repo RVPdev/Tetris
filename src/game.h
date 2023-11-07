@@ -16,14 +16,16 @@ public:
     void MoveBlockDown();              // Method to handle Down movement
     Grid grid;                         // Grid object representing the game board
     bool gameOver;                     // Bool value to indicate game over status
+    int score;
 
 private:
-    bool IsBlockOutside();     // Check if the block goes outside the border of the grid
-    void RotateBlock();        // Method to rotate the Block
-    void LockBlock();          // Method to Lock block sin place
-    bool BlockFits();          // Method to check if the block fits in the position
-    void Reset();
-    std::vector<Block> blocks; // Vector of all block types available in the game
-    Block currentBlock;        // The block that is currently being controlled by the player
-    Block nextBlock;           // The next block that will appear after the current block is placed
+    bool IsBlockOutside();                                  // Check if the block goes outside the border of the grid
+    void RotateBlock();                                     // Method to rotate the Block
+    void LockBlock();                                       // Method to Lock block sin place
+    bool BlockFits();                                       // Method to check if the block fits in the position
+    void Reset();                                           // Method to Reset the game board
+    void UpdateScore(int linesCleared, int moveDownPoints); // Method to Update the score
+    std::vector<Block> blocks;                              // Vector of all block types available in the game
+    Block currentBlock;                                     // The block that is currently being controlled by the player
+    Block nextBlock;                                        // The next block that will appear after the current block is placed
 };
